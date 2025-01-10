@@ -11,7 +11,7 @@ const ProductTypes = (props: Props) => {
       className={`absolute left-0 right-0 w-full h-[80vh] transition-all duration-500 ease-in-out py-4 border-t-2 bg-white shadow-lg ${
         props.showProdctTypes
           ? "flex z-50 translate-y-6 opacity-100"
-          : "translate-y-8 opacity-0 pointer-events-none"
+          : "translate-y-12 opacity-0 pointer-events-none"
       }`}
     >
       <div className="w-[1024px] mx-auto flex gap-3">
