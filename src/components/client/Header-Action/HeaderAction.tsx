@@ -6,9 +6,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import SearchContainer from "../Search-Container/SearchContainer";
+import ModalLogin from "../Modal-Login/ModalLogin";
 
 const HeaderAction = () => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
 
   return (
     <>
@@ -19,7 +21,19 @@ const HeaderAction = () => {
           className="cursor-pointer"
           onClick={() => setShowSearch(true)}
         />
-        <FontAwesomeIcon icon={faUser} size="lg" className="cursor-pointer" />
+        <div className="relative">
+          <FontAwesomeIcon
+            icon={faUser}
+            size="lg"
+            className="cursor-pointer"
+            onClick={() => setShowLoginModal(true)}
+          />
+          <ModalLogin
+            showLoginModal={showLoginModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        </div>
+
         <div className="relative">
           <span className="flex items-center justify-center w-5 h-5 bg-red-600 text-white rounded-full absolute top-[-10px] right-[-10px]">
             0

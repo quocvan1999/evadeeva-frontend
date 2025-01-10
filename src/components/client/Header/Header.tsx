@@ -5,7 +5,7 @@ import HeaderNavigation from "../Header-Navigation/HeaderNavigation";
 
 const Header = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white shadow-sm">
       <HeaderInfo />
       <div className="max-w-[1280px] mx-auto px-2 flex items-center justify-between">
         <NavLink to="/" className="w-56">
