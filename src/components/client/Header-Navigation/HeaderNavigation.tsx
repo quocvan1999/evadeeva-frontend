@@ -16,7 +16,7 @@ const HeaderNavigation = () => {
           <NavLink to="/">hàng mới về</NavLink>
         </li>
         <li
-          className="group py-6 cursor-pointer"
+          className="group initial py-6 cursor-pointer"
           onMouseEnter={() => setShowProductTypes(true)}
           onMouseLeave={() => setShowProductTypes(false)}
         >
@@ -32,6 +32,10 @@ const HeaderNavigation = () => {
               }`}
             />
           </NavLink>
+          <ProductTypes
+            showProdctTypes={showProdctTypes}
+            setShowProductTypes={setShowProductTypes}
+          />
         </li>
         <li className="py-6 cursor-pointer">
           <NavLink to="/">bộ siêu tập</NavLink>
@@ -65,11 +69,6 @@ const HeaderNavigation = () => {
           <NavLink to="/">showroom</NavLink>
         </li>
       </ul>
-      <ProductTypes
-        showProdctTypes={showProdctTypes}
-        setShowProductTypes={setShowProductTypes}
-      />
-      <Sales showSales={showSales} setShowSales={setShowSales} />
     </>
   );
 };
