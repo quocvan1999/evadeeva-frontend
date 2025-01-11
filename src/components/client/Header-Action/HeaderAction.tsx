@@ -7,14 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import SearchContainer from "../Search-Container/SearchContainer";
 import ModalLogin from "../Modal-Login/ModalLogin";
+import Cart from "../Cart/Cart";
 
 const HeaderAction = () => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
-
-  const toggleModal = () => {
-    setShowLoginModal(!showLoginModal);
-  };
+  const [showCart, setShowCart] = useState<boolean>(false);
 
   return (
     <>
@@ -30,7 +28,7 @@ const HeaderAction = () => {
             icon={faUser}
             size="lg"
             className="cursor-pointer"
-            onClick={toggleModal}
+            onClick={() => setShowLoginModal(!showLoginModal)}
           />
           <ModalLogin
             showLoginModal={showLoginModal}
@@ -46,7 +44,9 @@ const HeaderAction = () => {
             icon={faBagShopping}
             size="lg"
             className="cursor-pointer"
+            onClick={() => setShowCart(!showCart)}
           />
+          <Cart showCart={showCart} setShowCart={setShowCart} />
         </div>
       </div>
       <SearchContainer showSearch={showSearch} setShowSearch={setShowSearch} />
