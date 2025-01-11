@@ -4,7 +4,7 @@ import { useState } from "react";
 import Notification from "../Notification/Notification";
 
 const HeaderInfo = () => {
-  const [showNotification, setShowNotification] = useState<boolean>(true);
+  const [showNotification, setShowNotification] = useState<boolean>(false);
 
   return (
     <div className="bg-black w-full">

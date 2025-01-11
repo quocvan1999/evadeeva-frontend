@@ -25,7 +25,7 @@ const ModalLogin = (props: Props) => {
   return (
     <div
       ref={ref}
-      className={`absolute right-[-35px] top-12 transition-all duration-300 ease-in-out bg-white shadow-custome-dark-1 p-4 rounded-sm w-[350px] text-center ${
+      className={`absolute z-10 right-[-35px] top-12 transition-all duration-300 ease-in-out bg-white shadow-custome-dark-1 p-4 rounded-sm w-[350px] text-center ${
         props.showLoginModal ? "scale-100 opacity-100" : "scale-0 opacity-0"
       }`}
     >

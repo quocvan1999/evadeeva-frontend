@@ -10,7 +10,7 @@ const Sales = (props: Props) => {
     <div
       onMouseEnter={() => props.setShowSales(true)}
       onMouseLeave={() => props.setShowSales(false)}
-      className={`absolute left-0 top-full w-[300px] bg-white transition-all duration-500 ease-in-out p-4 border-t-2 shadow-md ${
+      className={`absolute z-10 left-0 top-full w-[300px] bg-white transition-all duration-500 ease-in-out p-4 border-t-2 shadow-md ${
         props.showSales
           ? "flex z-50 translate-y-0 opacity-100"
           : "translate-y-4 opacity-0 pointer-events-none"

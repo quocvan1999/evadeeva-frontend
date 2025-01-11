@@ -8,7 +8,7 @@ const ProductTypes = (props: Props) => {
     <div
       onMouseEnter={() => props.setShowProductTypes(true)}
       onMouseLeave={() => props.setShowProductTypes(false)}
-      className={`absolute left-0 right-0 w-full h-[80vh] transition-all duration-500 ease-in-out py-4 border-t-2 bg-white shadow-lg ${
+      className={`absolute z-10 left-0 right-0 w-full h-[80vh] transition-all duration-500 ease-in-out py-4 border-t-2 bg-white shadow-lg ${
         props.showProdctTypes
           ? "flex z-50 translate-y-6 opacity-100"
           : "translate-y-12 opacity-0 pointer-events-none"

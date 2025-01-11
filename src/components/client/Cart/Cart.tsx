@@ -12,7 +12,7 @@ const Cart = (props: Props) => {
       onClick={() => {
         props.setShowCart(false);
       }}
-      className={`cursor-pointer fixed top-0 bottom-0 left-0 right-0 bg-[#00000028] transition-all duration-500 ease-in-out flex items-center justify-end ${
+      className={`cursor-pointer z-10 fixed top-0 bottom-0 left-0 right-0 bg-[#00000028] transition-all duration-500 ease-in-out flex items-center justify-end ${
         props.showCart ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
