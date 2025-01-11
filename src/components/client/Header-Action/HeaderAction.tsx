@@ -12,6 +12,10 @@ const HeaderAction = () => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
 
+  const toggleModal = () => {
+    setShowLoginModal(!showLoginModal);
+  };
+
   return (
     <>
       <div className="flex items-center gap-5">
@@ -21,12 +25,12 @@ const HeaderAction = () => {
           className="cursor-pointer"
           onClick={() => setShowSearch(true)}
         />
-        <div className="relative">
+        <div className="relative initial">
           <FontAwesomeIcon
             icon={faUser}
             size="lg"
             className="cursor-pointer"
-            onClick={() => setShowLoginModal(true)}
+            onClick={toggleModal}
           />
           <ModalLogin
             showLoginModal={showLoginModal}

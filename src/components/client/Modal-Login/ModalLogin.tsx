@@ -7,34 +7,40 @@ type Props = {
 };
 
 const ModalLogin = (props: Props) => {
-  const modalRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains(event.target as Node)) {
+      props.setShowLoginModal(false);
+    }
+  };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        props.setShowLoginModal(!props.showLoginModal);
-      }
-    };
-
-    if (props.showLoginModal) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [props.showLoginModal, props.setShowLoginModal]);
+  }, []);
 
   return (
     <div
-      ref={modalRef}
-      className={`absolute right-0 top-12 bg-white shadow-custome-dark-1 p-4 rounded-sm w-[350px] text-center ${
-        props.showLoginModal ? "scale-100" : "scale-0"
+      ref={ref}
+      className={`absolute right-[-35px] top-12 transition-all duration-300 ease-in-out bg-white shadow-custome-dark-1 p-4 rounded-sm w-[350px] text-center ${
+        props.showLoginModal ? "scale-100 opacity-100" : "scale-0 opacity-0"
       }`}
     >
+      <span className="absolute top-[-10px] right-[27px] w-8 h-auto">
+        <svg
+          viewBox="0 0 20 9"
+          role="presentation"
+          filter="drop-shadow(0 -3px 2px rgba(0, 0, 0, 0.055))"
+        >
+          <path
+            d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"
+            fill="#ffffff"
+          ></path>
+        </svg>
+      </span>
       <h1 className="uppercase font-[700] text-lg">đăng nhập tài khoản</h1>
       <p className="text-gray-500 text-[14px]">
         Nhập email và mật khẩu của bạn:

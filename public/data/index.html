@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Eva De Eva</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .arrow-up {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid white;
+        position: absolute;
+        top: -10px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <div
+      class="bg-black text-white text-sm py-2 px-4 flex justify-between items-center"
+    >
+      <div>
+        Hotline CSKH:
+        <span class="font-bold"> 18001731 </span>
+        - Hotline mua hàng:
+        <span class="font-bold"> 18001732 </span>
+      </div>
+      <div>Hệ thống showroom</div>
+    </div>
+    <header class="flex justify-between items-center py-4 px-8 border-b">
+      <div class="text-3xl font-bold">EVA DE EVA</div>
+      <nav class="flex space-x-6">
+        <a class="hover:text-gray-700" href="#"> HÀNG MỚI VỀ </a>
+        <a class="hover:text-gray-700" href="#"> SẢN PHẨM </a>
+        <a class="hover:text-gray-700" href="#"> BỘ SƯU TẬP </a>
+        <a class="hover:text-gray-700" href="#"> CASUAL </a>
+        <a class="hover:text-gray-700" href="#"> LADY ME </a>
+        <a class="hover:text-gray-700" href="#"> SALE </a>
+        <a class="hover:text-gray-700" href="#"> SHOWROOM </a>
+      </nav>
+      <div class="flex items-center space-x-4 relative">
+        <i class="fas fa-bell"> </i>
+        <span> Thông báo của tôi </span>
+        <i class="fas fa-user cursor-pointer" onclick="toggleModal()"> </i>
+        <i class="fas fa-shopping-bag"> </i>
+        <span class="bg-red-600 text-white rounded-full px-2"> 0 </span>
+        <!-- Modal -->
+        <div
+          class="absolute top-12 right-0 bg-white shadow-lg p-6 w-80 hidden"
+          id="loginModal"
+        >
+          <div class="arrow-up"></div>
+          <div class="text-xl font-bold mb-4">ĐĂNG NHẬP TÀI KHOẢN</div>
+          <form>
+            <div class="mb-4">
+              <label
+                class="block text-sm font-medium text-gray-700"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="email"
+                type="email"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-sm font-medium text-gray-700"
+                for="password"
+              >
+                Mật khẩu
+              </label>
+              <input
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="password"
+                type="password"
+              />
+            </div>
+            <div class="text-xs text-gray-500 mb-4">
+              This site is protected by reCAPTCHA and the Google
+              <a class="text-blue-500" href="#"> Privacy Policy </a>
+              and
+              <a class="text-blue-500" href="#"> Terms of Service </a>
+              apply.
+            </div>
+            <button
+              class="w-full bg-black text-white py-2 rounded-md"
+              type="submit"
+            >
+              ĐĂNG NHẬP
+            </button>
+          </form>
+          <div class="text-xs text-gray-500 mt-4">
+            Khách hàng mới?
+            <a class="text-blue-500" href="#"> Tạo tài khoản </a>
+            <br />
+            Quên mật khẩu?
+            <a class="text-blue-500" href="#"> Khôi phục mật khẩu </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="px-8 py-4">
+      <div class="text-sm text-gray-500 mb-4">Trang chủ / Áo sơ mi</div>
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-2xl font-bold">
+          Áo sơ mi
+          <span class="text-gray-500 text-lg"> 79 sản phẩm </span>
+        </div>
+        <div class="flex space-x-4">
+          <a class="hover:text-gray-700" href="#"> Áo sơ mi </a>
+          <a class="hover:text-gray-700" href="#"> Áo dài </a>
+          <a class="hover:text-gray-700" href="#"> Áo kiểu </a>
+          <a class="hover:text-gray-700" href="#"> Áo khoác </a>
+          <a class="hover:text-gray-700" href="#"> Áo len </a>
+          <a class="hover:text-gray-700" href="#"> T-shirt </a>
+          <a class="hover:text-gray-700" href="#"> Tất cả Áo </a>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <div class="relative">
+          <img
+            alt="Model wearing a shirt"
+            class="w-full"
+            src="https://placehold.co/300x400"
+          />
+          <div
+            class="absolute top-4 left-4 bg-orange-500 text-white px-2 py-1 rounded-full"
+          >
+            New Arrivals
+          </div>
+        </div>
+        <div class="relative">
+          <img
+            alt="Model wearing a pink shirt and white skirt"
+            class="w-full"
+            src="https://placehold.co/300x400"
+          />
+          <div
+            class="absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-full"
+          >
+            -50%
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function toggleModal() {
+        const modal = document.getElementById("loginModal");
+        modal.classList.toggle("hidden");
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("loginModal");
+        if (
+          event.target !== modal &&
+          !modal.contains(event.target) &&
+          event.target.classList.contains("fa-user") === false
+        ) {
+          modal.classList.add("hidden");
+        }
+      };
+    </script>
+  </body>
+</html>
