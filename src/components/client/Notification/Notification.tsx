@@ -5,6 +5,21 @@ type Props = {
   setShowNotification: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+const data = [
+  {
+    title: "WILD SOUL - BST CHẠM ĐẾN VẺ ĐẸP CỦA TÂM HỒN TỰ DO",
+    date: "2/08/2023",
+  },
+  {
+    title: "WILD SOUL - BST CHẠM ĐẾN VẺ ĐẸP CỦA TÂM HỒN TỰ DO",
+    date: "2/08/2023",
+  },
+  {
+    title: "WILD SOUL - BST CHẠM ĐẾN VẺ ĐẸP CỦA TÂM HỒN TỰ DO",
+    date: "2/08/2023",
+  },
+];
+
 const Notification = (props: Props) => {
   return (
     <div
@@ -29,14 +44,14 @@ const Notification = (props: Props) => {
         </svg>
       </span>
       <ul className="w-full px-4 py-3">
-        <li className="py-2 text-black cursor-pointer">
-          <h1 className="font-[600] text-[13px] py-2">
-            WILD SOUL - BST CHẠM ĐẾN VẺ ĐẸP CỦA TÂM HỒN TỰ DO
-          </h1>
-          <p className="text-[13px]">
-            02/08/2023 - <span className="text-blue-700">Xem chi tiết</span>
-          </p>
-        </li>
+        {data.map((item, index) => (
+          <li className="py-2 text-black cursor-pointer first:border-none border-t" key={index}>
+            <h1 className="font-[600] text-[13px] py-2">{item.title}</h1>
+            <p className="text-[13px]">
+              {item.date} - <span className="text-blue-700">Xem chi tiết</span>
+            </p>
+          </li>
+        ))}
       </ul>
     </div>
   );
