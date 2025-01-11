@@ -13,13 +13,15 @@ const SearchContainer = (props: Props) => {
     <div
       onClick={() => props.setShowSearch(false)}
       className={`right-0 top-0 w-full h-[100vh] z-10 cursor-pointer bg-[#00000028] fixed transition-all duration-500 ease-in-out ${
-        props.showSearch
-          ? "translate-y-0 opacity-100"
-          : "translate-y-[-70vh] opacity-0 pointer-events-none"
+        props.showSearch ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
       <div
-        className="w-full h-auto bg-white"
+        className={`w-full h-auto bg-white transition-all duration-500 ease-in-out  ${
+          props.showSearch
+            ? "translate-y-0 opacity-100"
+            : "translate-y-[-70vh] opacity-0 pointer-events-none"
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="w-[1280px] mx-auto px-2 py-7 flex items-start justify-between">
