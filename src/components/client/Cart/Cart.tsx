@@ -34,7 +34,7 @@ const Cart = (props: Props) => {
             <span className="block w-4 h-[2px] bg-black absolute -rotate-45 transition-transform duration-500 ease-in-out group-hover:rotate-0"></span>
           </div>
         </div>
-        <div className="w-full p-4">
+        <div className="w-full p-10">
           <div className="w-full flex justify-center">
             <img src="/public/data/cart_banner_image.webp" alt="cart img" />
           </div>
