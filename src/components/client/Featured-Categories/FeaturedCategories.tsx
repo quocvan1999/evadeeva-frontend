@@ -1,7 +1,7 @@
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import CaroucelFeaturedCategories from "../Caroucel-Featured-Categories/CaroucelFeaturedCategories";
+import FeaturedCategoriesCard from "../Featured-Categories-Card/FeaturedCategoriesCard";
 
 const data = [
   { title: "Đầm", img: "/public/data/dam.webp" },
@@ -66,7 +66,7 @@ const FeaturedCategories = () => {
             }}
           >
             {data.map((category, index) => (
-              <CaroucelFeaturedCategories key={index} data={category} />
+              <FeaturedCategoriesCard key={index} data={category} />
             ))}
           </div>
         </div>

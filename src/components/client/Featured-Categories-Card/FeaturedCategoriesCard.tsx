@@ -5,7 +5,7 @@ type Props = {
   data: { title: string; img: string };
 };
 
-const CaroucelFeaturedCategories = (props: Props) => {
+const FeaturedCategoriesCard = (props: Props) => {
   return (
     <div className="w-[calc((100%-84px)/4)] flex-shrink-0 h-[400px] overflow-hidden cursor-pointer relative">
       <div className="absolute flex items-center justify-between px-4 left-0 right-0 bottom-0 bg-[#ccccccad] py-4 z-10">
@@ -23,4 +23,4 @@ const CaroucelFeaturedCategories = (props: Props) => {
   );
 };
 
-export default CaroucelFeaturedCategories;
+export default FeaturedCategoriesCard;
