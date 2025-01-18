@@ -165,7 +165,7 @@ const SaleContainer = () => {
         </div>
 
         <div className="w-full flex items-center justify-center">
-          <button className="uppercase bg-white border text-[14px] font-[500] py-2 px-4 transition-all duration-500 ease-in-out hover:bg-black hover:text-white border-black rounded-[5px]">
+          <button className="uppercase bg-white border text-[14px] font-[500] py-3 px-4 transition-all duration-500 ease-in-out hover:bg-black hover:text-white border-black rounded-[5px]">
             Xem tất cả {" "}
             <span className="font-bold">
               End Of Season Sale 50% 70% FW24

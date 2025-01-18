@@ -1,3 +1,4 @@
+import AboutUs from "../../components/client/About-Us/AboutUs";
 import Caroucel from "../../components/client/Caroucel/Caroucel";
 import FeaturedCategories from "../../components/client/Featured-Categories/FeaturedCategories";
 import ProductTabs from "../../components/client/Product-Tabs/ProductTabs";
@@ -274,6 +275,7 @@ const HomePageClient = () => {
       <FeaturedCategories />
       <SaleContainer />
       <ProductTabs tabsData={tabs1} />
+      <AboutUs/>
     </div>
   );
 };

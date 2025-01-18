@@ -49,12 +49,12 @@ const ModalLogin = (props: Props) => {
       <div className="flex flex-col gap-3">
         <input
           type="text"
-          className="border py-2 px-2 text-sm placeholder:text-sm focus:outline-none"
+          className="border py-3 px-2 text-sm placeholder:text-sm focus:outline-none"
           placeholder="Email"
         />
         <input
           type="text"
-          className="border py-2 px-2 text-sm placeholder:text-sm focus:outline-none"
+          className="border py-3 px-2 text-sm placeholder:text-sm focus:outline-none"
           placeholder="Mật khẩu"
         />
       </div>
@@ -70,7 +70,7 @@ const ModalLogin = (props: Props) => {
         </Link>{" "}
         apply.
       </p>
-      <button className="w-full text-center py-2 bg-[#302d2d] text-white uppercase font-[700] rounded-[5px] text-sm transition-all duration-500 ease-in-out hover:bg-black">
+      <button className="w-full text-center py-3 bg-[#302d2d] text-white uppercase font-[500] rounded-[5px] text-[13px] transition-all duration-500 ease-in-out hover:bg-black">
         đăng nhập
       </button>
       <div className="mt-2 text-start text-[13px] text-gray-500">
