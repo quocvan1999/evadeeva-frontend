@@ -7,7 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
-  index: number;
   gap: number;
   itemsPerPage: number;
   item: {
@@ -18,6 +17,7 @@ type Props = {
     image: string;
     hoverImage: string;
   };
+  type: "nomal" | "sale";
 };
 
 const CardProduct = (props: Props) => {
@@ -28,9 +28,15 @@ const CardProduct = (props: Props) => {
           props.itemsPerPage
         })`,
       }}
-      className="flex-shrink-0 h-[350px] overflow-hidden cursor-pointer flex flex-col items-center justify-start group"
+      className={`flex-shrink-0 overflow-hidden cursor-pointer flex flex-col items-center justify-start group ${
+        props.type === "sale" ? "h-[350px]" : "h-[450px]"
+      }`}
     >
-      <div className="w-full h-[70%] relative overflow-hidden">
+      <div
+        className={`w-full relative overflow-hidden ${
+          props.type === "sale" ? "h-[70%]" : "h-[85%]"
+        }`}
+      >
         <img
           src={props.item.image}
           alt="img"
@@ -55,23 +61,35 @@ const CardProduct = (props: Props) => {
             <FontAwesomeIcon icon={faEye} />
           </div>
         </div>
-        <div className="absolute bg-red-600 px-2 top-2 left-2 flex items-center justify-center rounded-[4px]">
-          <FontAwesomeIcon
-            icon={faBoltLightning}
-            style={{ color: "#fff", fontSize: 10 }}
-          />
-          <span className="text-white font-semibold text-[15px] ms-1">
-            - {props.item.discount}%
-          </span>
-        </div>
+        {props.item.discount > 0 && (
+          <div className="absolute bg-red-600 px-2 top-2 left-2 flex items-center justify-center rounded-[4px]">
+            <FontAwesomeIcon
+              icon={faBoltLightning}
+              style={{ color: "#fff", fontSize: 10 }}
+            />
+            <span className="text-white font-semibold text-[15px] ms-1">
+              - {props.item.discount}%
+            </span>
+          </div>
+        )}
       </div>
-      <div className="w-full h-[30%] p-3 bg-white">
+      <div
+        className={`w-full p-3 bg-white ${
+          props.type === "sale" ? "h-[30%]" : "h-[15%]"
+        }`}
+      >
         <h1 className="text-sm font-medium">{props.item.name}</h1>
-        <p className="font-bold text-red-600 mt-2">
+        <p
+          className={`font-bold mt-2 ${
+            props.item.discount > 0 ? "text-red-600" : " text-black"
+          }`}
+        >
           {formatCurrency(props.item.price)}{" "}
-          <span className="font-normal text-gray-400 line-through">
-            {formatCurrency(props.item.original_price)}
-          </span>
+          {props.item.discount > 0 && (
+            <span className="font-normal text-gray-400 line-through">
+              {formatCurrency(props.item.original_price)}
+            </span>
+          )}
         </p>
       </div>
     </div>

@@ -155,10 +155,10 @@ const SaleContainer = () => {
             {data.map((item, index) => (
               <CardProduct
                 key={index}
-                index={index}
                 gap={gap}
                 itemsPerPage={itemsPerPage}
                 item={item}
+                type="sale"
               />
             ))}
           </div>
