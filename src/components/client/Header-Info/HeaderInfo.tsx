@@ -18,7 +18,7 @@ const HeaderInfo = () => {
           <p>Hệ thống showroom</p>
         </div>
         <div
-          className="flex items-center gap-3 cursor-pointer"
+          className="flex relative items-center gap-3 cursor-pointer"
           onMouseEnter={() => setShowNotification(true)}
           onMouseLeave={() => setShowNotification(false)}
         >

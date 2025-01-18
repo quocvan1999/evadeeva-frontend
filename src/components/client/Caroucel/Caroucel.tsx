@@ -36,7 +36,7 @@ const Carousel = () => {
 
   return (
     <div
-      className="w-full h-[80vh] relative bg-red-600 overflow-hidden"
+      className="w-full relative bg-red-600 overflow-hidden"
       onMouseEnter={() => setShowCarouselButton(true)}
       onMouseLeave={() => setShowCarouselButton(false)}
     >

@@ -10,11 +10,18 @@ const data = [
   { title: "Chân váy", img: "/public/data/dam.webp" },
   { title: "Áo khoác", img: "/public/data/dam.webp" },
   { title: "Váy dài", img: "/public/data/dam.webp" },
+  { title: "Váy dài", img: "/public/data/dam.webp" },
+  { title: "Váy dài", img: "/public/data/dam.webp" },
+  { title: "Váy dài", img: "/public/data/dam.webp" },
+  { title: "Váy dài", img: "/public/data/dam.webp" },
 ];
 
 const FeaturedCategories = () => {
-  const itemsPerPage = 4;
+  const itemsPerPage = 4; // Số lượng item trên mỗi trang
+  const gap = 7; // Khoảng cách giữa các item (px)
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const maxIndex = Math.ceil(data.length / itemsPerPage) - 1; // Số lần chuyển tối đa
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -23,7 +30,7 @@ const FeaturedCategories = () => {
   };
 
   const handleNext = () => {
-    if (currentIndex < data.length - itemsPerPage) {
+    if (currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -46,10 +53,10 @@ const FeaturedCategories = () => {
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <button
-              disabled={currentIndex === data.length - itemsPerPage}
+              disabled={currentIndex === maxIndex}
               onClick={handleNext}
               className={`text-[20px] ${
-                currentIndex === data.length - itemsPerPage
+                currentIndex === maxIndex
                   ? "text-gray-400 cursor-not-allowed"
                   : "text-black"
               }`}
@@ -60,13 +67,19 @@ const FeaturedCategories = () => {
         </div>
         <div className="overflow-hidden relative pb-10">
           <div
-            className="flex transition-transform duration-500 ease-in-out gap-7"
+            className="flex transition-transform duration-500 ease-in-out"
             style={{
+              gap: `${gap}px`,
               transform: `translateX(-${(currentIndex * 100) / itemsPerPage}%)`,
             }}
           >
             {data.map((category, index) => (
-              <FeaturedCategoriesCard key={index} data={category} />
+              <FeaturedCategoriesCard
+                key={index}
+                data={category}
+                itemsPerPage={itemsPerPage}
+                gap={gap}
+              />
             ))}
           </div>
         </div>
