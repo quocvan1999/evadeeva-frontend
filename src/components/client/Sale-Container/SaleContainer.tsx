@@ -159,7 +159,6 @@ const SaleContainer = () => {
                 gap={gap}
                 itemsPerPage={itemsPerPage}
                 item={item}
-                type="sale"
               />
             ))}
           </div>

@@ -18,7 +18,6 @@ type Props = {
     image: string;
     hoverImage: string;
   };
-  type: "simple" | "sale";
 };
 
 const CardProduct = (props: Props) => {
