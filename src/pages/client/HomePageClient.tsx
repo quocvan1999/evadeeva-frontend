@@ -269,13 +269,278 @@ const HomePageClient = () => {
     },
   ];
 
+  const tabs2 = [
+    {
+      id: 0,
+      title: "Đồ đi làm",
+      data: [
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 0,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 0,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 0,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 0,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 0,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+      ],
+    },
+    {
+      id: 1,
+      title: "Đô đi chơi",
+      data: [
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Đồ đi tiệc",
+      data: [
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+        {
+          name: "Áo khoác kiểu, 24AJKC007X",
+          price: 799500,
+          original_price: 1599000,
+          discount: 50,
+          image: "/public/data/dam.webp",
+          hoverImage:
+            "/public/data/24adke072f_9bdab4b56c094f57bc7da6fc153875c5_master.webp",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="w-full">
       <Caroucel />
       <FeaturedCategories />
       <SaleContainer />
       <ProductTabs tabsData={tabs1} />
-      <AboutUs/>
+      <AboutUs />
+      <ProductTabs tabsData={tabs2} />
     </div>
   );
 };
