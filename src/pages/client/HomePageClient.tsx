@@ -4,6 +4,7 @@ import FeaturedCategories from "../../components/client/Featured-Categories/Feat
 import Posts from "../../components/client/Posts/Posts";
 import ProductTabs from "../../components/client/Product-Tabs/ProductTabs";
 import SaleContainer from "../../components/client/Sale-Container/SaleContainer";
+import Services from "../../components/client/Services/Services";
 
 const HomePageClient = () => {
   const tabs1 = [
@@ -543,6 +544,7 @@ const HomePageClient = () => {
       <AboutUs />
       <ProductTabs tabsData={tabs2} />
       <Posts />
+      <Services/>
     </div>
   );
 };
