@@ -1,6 +1,7 @@
 import AboutUs from "../../components/client/About-Us/AboutUs";
 import Caroucel from "../../components/client/Caroucel/Caroucel";
 import FeaturedCategories from "../../components/client/Featured-Categories/FeaturedCategories";
+import Posts from "../../components/client/Posts/Posts";
 import ProductTabs from "../../components/client/Product-Tabs/ProductTabs";
 import SaleContainer from "../../components/client/Sale-Container/SaleContainer";
 
@@ -541,6 +542,7 @@ const HomePageClient = () => {
       <ProductTabs tabsData={tabs1} />
       <AboutUs />
       <ProductTabs tabsData={tabs2} />
+      <Posts />
     </div>
   );
 };
