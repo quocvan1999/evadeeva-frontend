@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LayoutOutlined, UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, ConfigProvider, Layout, Menu, theme } from "antd";
+import { ConfigProvider, Layout, Menu, theme } from "antd";
+import { useNavigate } from "react-router-dom";
+import { getCookie, isTokenExpired } from "../../utils/currencyUtils";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,7 +29,9 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [isSelectMenu, setIsSelectMenu] = useState<string>("1");
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -43,6 +47,26 @@ const App: React.FC = () => {
         break;
     }
   };
+
+  const checkLogin = () => {
+    const accessToken: string | null = getCookie("accessToken");
+
+    if (accessToken) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+
+    console.log(isLogin);
+
+    // if (!isLogin) {
+    //   navigate("/admin/login");
+    // }
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
 
   return (
     <ConfigProvider
