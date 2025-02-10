@@ -5,12 +5,13 @@ import {
   LoginType,
   ResponseType,
 } from "../../types/types.type";
-import { Button, ConfigProvider, Form, Input, Spin } from "antd";
+import { Button, ConfigProvider, Form, Input, notification, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../../services/admin/loginPage/loginPage.service";
 import { setCookie } from "../../utils/currencyUtils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useCheckLogin from "../../hooks/useCheckLogin";
+import useNotification from "../../hooks/useNotification";
 
 const initialValues: LoginType = {
   email: "",
@@ -20,6 +21,7 @@ const initialValues: LoginType = {
 const LoginPageAdmin = () => {
   const navigate = useNavigate();
   const { checkIsLogin, isLogin } = useCheckLogin();
+  const { setContentNotification } = useNotification();
 
   const handleLogin = async (values: LoginType) => {
     try {
@@ -27,6 +29,11 @@ const LoginPageAdmin = () => {
 
       switch (login.statusCode) {
         case 200:
+          setContentNotification({
+            message: "Đăng nhập",
+            description: "Đăng nhập thành công!",
+            type: "success",
+          });
           setCookie("accessToken", login.content.token || "", 1);
           navigate("/admin");
           break;
