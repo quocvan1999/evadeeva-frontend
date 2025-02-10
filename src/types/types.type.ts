@@ -14,3 +14,5 @@ export type LoginResponseType = {
   token?: string;
   error?: string;
 };
+
+export type RefreshTokenResponseType = LoginResponseType & {};
