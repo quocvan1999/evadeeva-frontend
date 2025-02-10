@@ -22,9 +22,12 @@ const useCheckLogin = () => {
           setIsLogin("false");
           break;
       }
-    } catch (error) {
-      setIsLogin("false");
-      throw error;
+    } catch (error: any) {
+      switch (error?.statusCode) {
+        default:
+          setIsLogin("false");
+          break;
+      }
     }
   };
 

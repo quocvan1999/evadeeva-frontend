@@ -38,10 +38,38 @@ const LoginPageAdmin = () => {
           navigate("/admin");
           break;
         default:
+          setContentNotification({
+            message: "Đăng nhập",
+            description: "Đăng nhập không thành công!",
+            type: "error",
+          });
           break;
       }
-    } catch (error) {
-      throw error;
+    } catch (error: any) {
+      switch (error?.statusCode) {
+        case 404:
+          setContentNotification({
+            message: "Đăng nhập",
+            description:
+              "Thông tin người dùng không tồn tại hoặc không chính xác!",
+            type: "error",
+          });
+          break;
+        case 401:
+          setContentNotification({
+            message: "Đăng nhập",
+            description: "Mật khẩu không chính xác.",
+            type: "error",
+          });
+          break;
+        default:
+          setContentNotification({
+            message: "Đăng nhập",
+            description: "Đăng nhập không thành công!",
+            type: "error",
+          });
+          break;
+      }
     }
   };
 

@@ -20,8 +20,8 @@ export const loginService = async (
       }
     );
     return res.data;
-  } catch (error) {
-    throw error;
+  } catch (error: any) {
+    return Promise.reject(error.response?.data);
   }
 };
 

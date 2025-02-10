@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LayoutOutlined, UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { ConfigProvider, Layout, Menu, theme } from "antd";
-import { useNavigate } from "react-router-dom";
-import { getCookie, isTokenExpired } from "../../utils/currencyUtils";
+import { getCookie } from "../../utils/currencyUtils";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,7 +28,6 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [isSelectMenu, setIsSelectMenu] = useState<string>("1");

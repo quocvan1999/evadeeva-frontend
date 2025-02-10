@@ -1,7 +1,8 @@
-import { notification } from "antd";
+import { App } from "antd";
 import { useEffect, useState } from "react";
 
 const useNotification = () => {
+  const { notification } = App.useApp();
   const [contentNotification, setContentNotification] = useState<{
     message: string;
     description: string;
