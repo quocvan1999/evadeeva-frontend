@@ -1,11 +1,11 @@
-import { getIn, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
   LoginResponseType,
   LoginType,
   ResponseType,
 } from "../../types/types.type";
-import { Button, Checkbox, ConfigProvider, Form, Input, Spin } from "antd";
+import { Button, Checkbox, ConfigProvider, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../../services/admin/loginPage/loginPage.service";
 import {
@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from "react";
 import useCheckLogin from "../../hooks/useCheckLogin";
 import useNotification from "../../hooks/useNotification";
+import LoadingPage from "../../components/admin/LoadingPage/LoadingPage";
 
 const initialValues: LoginType = {
   email: "",
@@ -211,9 +212,7 @@ const LoginPageAdmin = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-[100vh] flex items-center justify-center">
-          <Spin size="large" />
-        </div>
+        <LoadingPage />
       )}
     </ConfigProvider>
   );
