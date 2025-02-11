@@ -1,14 +1,19 @@
-import { useFormik } from "formik";
+import { getIn, useFormik } from "formik";
 import * as Yup from "yup";
 import {
   LoginResponseType,
   LoginType,
   ResponseType,
 } from "../../types/types.type";
-import { Button, ConfigProvider, Form, Input, notification, Spin } from "antd";
+import { Button, Checkbox, ConfigProvider, Form, Input, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../../services/admin/loginPage/loginPage.service";
-import { setCookie } from "../../utils/currencyUtils";
+import {
+  decryptPassword,
+  encryptPassword,
+  getCookie,
+  setCookie,
+} from "../../utils/currencyUtils";
 import { useEffect, useState } from "react";
 import useCheckLogin from "../../hooks/useCheckLogin";
 import useNotification from "../../hooks/useNotification";
@@ -20,6 +25,7 @@ const initialValues: LoginType = {
 
 const LoginPageAdmin = () => {
   const navigate = useNavigate();
+  const [isRememberPassword, setIsRememberPassword] = useState<boolean>(false);
   const { checkIsLogin, isLogin } = useCheckLogin();
   const { setContentNotification } = useNotification();
 
@@ -82,11 +88,32 @@ const LoginPageAdmin = () => {
         .email("Email không đúng định dạng"),
       password: Yup.string().required("Password không được để trống"),
     }),
-    onSubmit: (values) => handleLogin(values),
+    onSubmit: (values) => {
+      if (isRememberPassword) {
+        const decMail = encryptPassword(values.email);
+        const decPass = encryptPassword(values.password);
+
+        setCookie("A_c", decMail, 15);
+        setCookie("P_w", decPass, 15);
+      }
+
+      handleLogin(values);
+    },
   });
+
+  const getInfoLogin = () => {
+    const email = getCookie("A_c");
+    const password = getCookie("P_w");
+
+    if (email && password) {
+      formLogin.setFieldValue("email", decryptPassword(email));
+      formLogin.setFieldValue("password", decryptPassword(password));
+    }
+  };
 
   useEffect(() => {
     checkIsLogin();
+    getInfoLogin();
   }, []);
 
   useEffect(() => {
@@ -160,6 +187,14 @@ const LoginPageAdmin = () => {
                     onChange={formLogin.handleChange}
                     onBlur={formLogin.handleBlur}
                   />
+                </Form.Item>
+                <Form.Item>
+                  <Checkbox
+                    checked={isRememberPassword}
+                    onChange={() => setIsRememberPassword(!isRememberPassword)}
+                  >
+                    Nhớ mật khẩu
+                  </Checkbox>
                 </Form.Item>
                 <Form.Item>
                   <Button

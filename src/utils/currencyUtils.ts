@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 export function formatCurrency(amount: number): string {
   return amount
     .toLocaleString("vi-VN", { style: "currency", currency: "VND" })
@@ -51,4 +53,21 @@ export const isTokenExpired = (token: string): boolean => {
     console.error("Invalid token:", error);
     return true; // Nếu token không hợp lệ, coi như hết hạn
   }
+};
+
+// Hàm mã hóa mật khẩu
+export const encryptPassword = (password: string): string => {
+  return CryptoJS.AES.encrypt(
+    password,
+    import.meta.env.VITE_PASS_SECRET_KEY || "1"
+  ).toString();
+};
+
+// Hàm giải mã mật khẩu
+export const decryptPassword = (encryptedPassword: string): string => {
+  const bytes = CryptoJS.AES.decrypt(
+    encryptedPassword,
+    import.meta.env.VITE_PASS_SECRET_KEY || "1"
+  );
+  return bytes.toString(CryptoJS.enc.Utf8);
 };
