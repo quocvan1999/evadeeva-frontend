@@ -13,7 +13,10 @@ import {
   setCookie,
 } from "../../../utils/currencyUtils";
 import useNotification from "../../../hooks/useNotification";
-import { loginService } from "../../../services/admin/loginPage/loginPage.service";
+import {
+  checkAccountService,
+  loginService,
+} from "../../../services/admin/loginPage/loginPage.service";
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form, Input } from "antd";
 
@@ -86,6 +89,52 @@ const LoginPage = (props: Props) => {
     }
   };
 
+  const checkAccount = async (values: LoginType) => {
+    try {
+      const login: ResponseType<LoginResponseType> = await checkAccountService(
+        values
+      );
+
+      switch (login.statusCode) {
+        case 200:
+          handleLogin(values);
+          break;
+        default:
+          setContentNotification({
+            message: "Đăng nhập!",
+            description: "Đăng nhập không thành công.",
+            type: "error",
+          });
+          break;
+      }
+    } catch (error: any) {
+      switch (error?.statusCode) {
+        case 400:
+          setContentNotification({
+            message: "Đăng nhập!",
+            description:
+              "Thông tin người dùng không tồn tại hoặc không chính xác.",
+            type: "error",
+          });
+          break;
+        case 401:
+          setContentNotification({
+            message: "Đăng nhập!",
+            description: "Người dùng không có quyền truy cập.",
+            type: "error",
+          });
+          break;
+        default:
+          setContentNotification({
+            message: "Đăng nhập!",
+            description: "Đăng nhập không thành công.",
+            type: "error",
+          });
+          break;
+      }
+    }
+  };
+
   const formLogin = useFormik({
     initialValues,
     enableReinitialize: true,
@@ -104,7 +153,7 @@ const LoginPage = (props: Props) => {
         setCookie("P_w", decPass, 15);
       }
 
-      handleLogin(values);
+      checkAccount(values);
     },
   });
 

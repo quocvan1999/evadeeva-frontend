@@ -21,4 +21,9 @@ export type GetCodeResponseType = {
   error?: string;
 };
 
+export type CheckAccountResponseType = {
+  message?: string;
+  error?: string;
+};
+
 export type RefreshTokenResponseType = LoginResponseType & {};
