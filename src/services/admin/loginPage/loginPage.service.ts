@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import {
+  GetCodeResponseType,
   LoginResponseType,
   LoginType,
   RefreshTokenResponseType,
@@ -39,5 +40,22 @@ export const refreshTokenService = async (): Promise<
     return res.data;
   } catch (error) {
     throw error;
+  }
+};
+
+export const getCodeService = async (values: {
+  email: string;
+}): Promise<ResponseType<GetCodeResponseType>> => {
+  try {
+    const res: AxiosResponse = await axios.post(
+      `${API_URL}/api/auth/forgot-password`,
+      values,
+      {
+        withCredentials: true,
+      }
+    );
+    return res.data;
+  } catch (error: any) {
+    return Promise.reject(error.response?.data);
   }
 };

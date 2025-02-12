@@ -15,4 +15,10 @@ export type LoginResponseType = {
   error?: string;
 };
 
+export type GetCodeResponseType = {
+  message?: string;
+  code?: string;
+  error?: string;
+};
+
 export type RefreshTokenResponseType = LoginResponseType & {};
