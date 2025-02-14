@@ -5,6 +5,7 @@ import LoadingPage from "../../components/admin/LoadingPage/LoadingPage";
 import { useNavigate } from "react-router-dom";
 import LoginPage from "../../components/admin/LoginPage/LoginPage";
 import ForgotSendMail from "../../components/admin/ForgotSendMail/ForgotSendMail";
+import ForgotSendCode from "../../components/admin/ForgotSendCode/ForgotSendCode";
 
 const LoginPageAdmin = () => {
   const navigate = useNavigate();
@@ -18,13 +19,7 @@ const LoginPageAdmin = () => {
   }, []);
 
   useEffect(() => {
-    switch (isLogin) {
-      case "true":
-        navigate("/admin");
-        break;
-      default:
-        break;
-    }
+    isLogin === "true" && navigate("/admin");
   }, [isLogin]);
 
   return (
@@ -49,8 +44,10 @@ const LoginPageAdmin = () => {
               <img src="/public/imgs/logo.webp" alt="logo" />
               {isPage === "login" ? (
                 <LoginPage isPage={isPage} setIsPage={setIsPage} />
-              ) : (
+              ) : isPage === "forgotSendMail" ? (
                 <ForgotSendMail isPage={isPage} setIsPage={setIsPage} />
+              ) : (
+                <ForgotSendCode isPage={isPage} setIsPage={setIsPage} />
               )}
             </div>
           </div>

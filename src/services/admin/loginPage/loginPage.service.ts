@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import {
   CheckAccountResponseType,
+  CheckAccountType,
+  CheckCodeResponseType,
+  CheckCodeType,
   GetCodeResponseType,
   LoginResponseType,
   LoginType,
@@ -62,7 +65,7 @@ export const getCodeService = async (values: {
 };
 
 export const checkAccountService = async (
-  values: LoginType
+  values: CheckAccountType
 ): Promise<ResponseType<CheckAccountResponseType>> => {
   try {
     const res: AxiosResponse = await axios.post(
@@ -72,6 +75,24 @@ export const checkAccountService = async (
         withCredentials: true,
       }
     );
+    return res.data;
+  } catch (error: any) {
+    return Promise.reject(error.response?.data);
+  }
+};
+
+export const checkCodeService = async (
+  values: CheckCodeType
+): Promise<ResponseType<CheckCodeResponseType>> => {
+  try {
+    const res: AxiosResponse = await axios.post(
+      `${API_URL}/api/auth/check-otp-forgot`,
+      values,
+      {
+        withCredentials: true,
+      }
+    );
+
     return res.data;
   } catch (error: any) {
     return Promise.reject(error.response?.data);

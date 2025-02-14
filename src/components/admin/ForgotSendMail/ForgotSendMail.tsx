@@ -1,7 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useNotification from "../../../hooks/useNotification";
-import { useNavigate } from "react-router-dom";
 import { Button, Form, Input } from "antd";
 import { GetCodeResponseType, ResponseType } from "../../../types/types.type";
 import { getCodeService } from "../../../services/admin/loginPage/loginPage.service";
@@ -20,7 +19,6 @@ const initialValues: { email: string } = {
 };
 
 const ForgotSendMail = (props: Props) => {
-  const navigate = useNavigate();
   const { setContentNotification } = useNotification();
 
   const handleForgotSendMail = async (values: { email: string }) => {
@@ -33,44 +31,31 @@ const ForgotSendMail = (props: Props) => {
         case 200:
           setContentNotification({
             message: "Quên mật khẩu!",
-            description:
-              "Lấy mã xác thực thành công, kiểm tra email để nhận mã.",
+            description: getCode.content.message || "",
             type: "success",
           });
+
+          localStorage.setItem("otp_m", values.email);
+
+          setTimeout(() => {
+            props.setIsPage("sendCode");
+          }, 500);
           break;
         default:
           setContentNotification({
             message: "Quên mật khẩu!",
-            description: "Lấy mã xác thực không thành công.",
+            description: getCode.content.message || "",
             type: "error",
           });
           break;
       }
     } catch (error: any) {
-      switch (error?.statusCode) {
-        case 400:
-          setContentNotification({
-            message: "Quên mật khẩu!",
-            description:
-              "Người dùng không tồn tại hoặc thông tin không chính xác.",
-            type: "error",
-          });
-          break;
-        case 404:
-          setContentNotification({
-            message: "Quên mật khẩu!",
-            description: "Lấy mã xác thực không thành công.",
-            type: "error",
-          });
-          break;
-        default:
-          setContentNotification({
-            message: "Quên mật khẩu!",
-            description: "Lấy mã xác thực không thành công.",
-            type: "error",
-          });
-          break;
-      }
+      setContentNotification({
+        message: "Quên mật khẩu!",
+        description:
+          error?.content.error || "Lấy mã xác thực không thành công.",
+        type: "error",
+      });
     }
   };
 

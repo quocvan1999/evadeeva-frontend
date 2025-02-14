@@ -9,21 +9,31 @@ export type ResponseType<T> = {
   timestamp: Date;
 };
 
-export type LoginResponseType = {
+export type CheckAccountType = LoginType & {};
+
+export type CheckCodeType = {
+  email: string;
+  otp: string;
+};
+
+// ------------------------------------------
+export type ContentResponseType = {
   message?: string;
+  error?: string;
+};
+
+export type LoginResponseType = ContentResponseType & {
   token?: string;
-  error?: string;
 };
 
-export type GetCodeResponseType = {
-  message?: string;
+export type RefreshTokenResponseType = ContentResponseType & {
+  token?: string;
+};
+
+export type GetCodeResponseType = ContentResponseType & {
   code?: string;
-  error?: string;
 };
 
-export type CheckAccountResponseType = {
-  message?: string;
-  error?: string;
-};
+export type CheckAccountResponseType = ContentResponseType & {};
 
-export type RefreshTokenResponseType = LoginResponseType & {};
+export type CheckCodeResponseType = ContentResponseType & {};

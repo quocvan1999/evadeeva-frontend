@@ -47,7 +47,7 @@ const LoginPage = (props: Props) => {
         case 200:
           setContentNotification({
             message: "Đăng nhập!",
-            description: "Đăng nhập thành công.",
+            description: login.content.message || "",
             type: "success",
           });
           setCookie("accessToken", login.content.token || "", 1);
@@ -56,36 +56,17 @@ const LoginPage = (props: Props) => {
         default:
           setContentNotification({
             message: "Đăng nhập!",
-            description: "Đăng nhập không thành công.",
+            description: login.content.message || "",
             type: "error",
           });
           break;
       }
     } catch (error: any) {
-      switch (error?.statusCode) {
-        case 404:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description:
-              "Thông tin người dùng không tồn tại hoặc không chính xác.",
-            type: "error",
-          });
-          break;
-        case 401:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description: "Mật khẩu không chính xác.",
-            type: "error",
-          });
-          break;
-        default:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description: "Đăng nhập không thành công.",
-            type: "error",
-          });
-          break;
-      }
+      setContentNotification({
+        message: "Đăng nhập!",
+        description: error?.content.error || "Đăng nhập không thành công",
+        type: "error",
+      });
     }
   };
 
@@ -102,36 +83,17 @@ const LoginPage = (props: Props) => {
         default:
           setContentNotification({
             message: "Đăng nhập!",
-            description: "Đăng nhập không thành công.",
+            description: login.content.message || "",
             type: "error",
           });
           break;
       }
     } catch (error: any) {
-      switch (error?.statusCode) {
-        case 400:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description:
-              "Thông tin người dùng không tồn tại hoặc không chính xác.",
-            type: "error",
-          });
-          break;
-        case 401:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description: "Người dùng không có quyền truy cập.",
-            type: "error",
-          });
-          break;
-        default:
-          setContentNotification({
-            message: "Đăng nhập!",
-            description: "Đăng nhập không thành công.",
-            type: "error",
-          });
-          break;
-      }
+      setContentNotification({
+        message: "Đăng nhập!",
+        description: error?.content.error || "Đăng nhập không thành công",
+        type: "error",
+      });
     }
   };
 
