@@ -1,11 +1,13 @@
 import CryptoJS from "crypto-js";
 
+// Hàm format tiền tệ việt nam
 export function formatCurrency(amount: number): string {
   return amount
     .toLocaleString("vi-VN", { style: "currency", currency: "VND" })
     .replace(/\s/g, "");
 }
 
+// Hàm rút gọn chuỗi
 export function limitString(inputString: string, limit: number): string {
   if (inputString.length > limit) {
     return inputString.slice(0, limit) + "...";
@@ -14,6 +16,7 @@ export function limitString(inputString: string, limit: number): string {
   }
 }
 
+// Hàm set cookie lên trình duyệt
 export function setCookie(name: string, value: string, days: number = 7): void {
   let expires = "";
   if (days) {
@@ -41,6 +44,7 @@ export function deleteCookie(name: string): void {
   document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 }
 
+// Hàm kiểm tra thời hạn token
 export const isTokenExpired = (token: string): boolean => {
   if (!token) return true; // Nếu không có token, coi như đã hết hạn
 
