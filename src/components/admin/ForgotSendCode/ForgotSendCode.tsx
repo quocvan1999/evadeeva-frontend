@@ -15,7 +15,6 @@ import {
 } from "../../../services/admin/loginPage/loginPage.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
 
 type Props = {
   isPage: "login" | "forgotSendMail" | "sendCode" | "forgotPassword";
