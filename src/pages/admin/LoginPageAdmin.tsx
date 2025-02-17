@@ -1,4 +1,4 @@
-import { ConfigProvider } from "antd";
+import { ConfigProvider, Divider } from "antd";
 import { useEffect, useState } from "react";
 import useCheckLogin from "../../hooks/useCheckLogin";
 import LoadingPage from "../../components/admin/LoadingPage/LoadingPage";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import LoginPage from "../../components/admin/LoginPage/LoginPage";
 import ForgotSendMail from "../../components/admin/ForgotSendMail/ForgotSendMail";
 import ForgotSendCode from "../../components/admin/ForgotSendCode/ForgotSendCode";
+import ForgotPassword from "../../components/admin/ForgotPassword/ForgotPassword";
 
 const LoginPageAdmin = () => {
   const navigate = useNavigate();
@@ -46,8 +47,10 @@ const LoginPageAdmin = () => {
                 <LoginPage isPage={isPage} setIsPage={setIsPage} />
               ) : isPage === "forgotSendMail" ? (
                 <ForgotSendMail isPage={isPage} setIsPage={setIsPage} />
-              ) : (
+              ) : isPage === "sendCode" ? (
                 <ForgotSendCode isPage={isPage} setIsPage={setIsPage} />
+              ) : (
+                <ForgotPassword isPage={isPage} setIsPage={setIsPage} />
               )}
             </div>
           </div>

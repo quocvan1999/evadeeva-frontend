@@ -4,6 +4,8 @@ import {
   CheckAccountType,
   CheckCodeResponseType,
   CheckCodeType,
+  ForgotPasswordType,
+  ForotPasswordResponseType,
   GetCodeResponseType,
   LoginResponseType,
   LoginType,
@@ -87,6 +89,24 @@ export const checkCodeService = async (
   try {
     const res: AxiosResponse = await axios.post(
       `${API_URL}/api/auth/check-otp-forgot`,
+      values,
+      {
+        withCredentials: true,
+      }
+    );
+
+    return res.data;
+  } catch (error: any) {
+    return Promise.reject(error.response?.data);
+  }
+};
+
+export const ForgotpasswordService = async (
+  values: ForgotPasswordType
+): Promise<ResponseType<ForotPasswordResponseType>> => {
+  try {
+    const res: AxiosResponse = await axios.patch(
+      `${API_URL}/api/auth/fotgot-password`,
       values,
       {
         withCredentials: true,

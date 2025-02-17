@@ -16,6 +16,8 @@ export type CheckCodeType = {
   otp: string;
 };
 
+export type ForgotPasswordType = LoginType & {};
+
 // ------------------------------------------
 export type ContentResponseType = {
   message?: string;
@@ -37,3 +39,5 @@ export type GetCodeResponseType = ContentResponseType & {
 export type CheckAccountResponseType = ContentResponseType & {};
 
 export type CheckCodeResponseType = ContentResponseType & {};
+
+export type ForotPasswordResponseType = ContentResponseType & {};

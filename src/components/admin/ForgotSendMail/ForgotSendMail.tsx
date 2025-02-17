@@ -35,7 +35,7 @@ const ForgotSendMail = (props: Props) => {
             type: "success",
           });
 
-          localStorage.setItem("otp_m", values.email);
+          localStorage.setItem("r_p_m", values.email);
 
           setTimeout(() => {
             props.setIsPage("sendCode");

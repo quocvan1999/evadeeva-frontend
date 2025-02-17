@@ -39,7 +39,7 @@ const ForgotSendCode = (props: Props) => {
 
   const handleForgotSendCode = async (value: string) => {
     try {
-      const email: string = localStorage.getItem("otp_m") || "";
+      const email: string = localStorage.getItem("r_p_m") || "";
 
       const newValue: CheckCodeType = {
         otp: value,
@@ -58,7 +58,6 @@ const ForgotSendCode = (props: Props) => {
           });
           setTimeout(() => {
             props.setIsPage("forgotPassword");
-            localStorage.removeItem("otp_m");
           }, 500);
           break;
         default:
